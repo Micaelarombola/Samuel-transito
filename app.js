@@ -38,7 +38,7 @@ const CATS = [
     status: "Listo para adopción a partir del 20 de febrero",
     tags: ["tranquila", "castrada", "sociable"],
     notes: "Ideal para hogar tranquilo. Se adapta rápido con paciencia.",
-    image: "assets/luna.jfif"
+    image: "assets/luna.jpg"
   },
   {
     id: "cloe",
@@ -47,7 +47,7 @@ const CATS = [
     status: "Listo para adopción a partir del 20 de febrero",
     tags: ["juguetona", "bebé"],
     notes: "Aún se está observando su evolución y rutina.",
-    image: "assets/cloe.jfif"
+    image: "assets/cloe.jpg"
   },
   {
     id: "china",
@@ -56,7 +56,7 @@ const CATS = [
     status: "Listo para adopción a partir del 20 de febrero",
     tags: ["juguetona", "mamá"],
     notes: "Aún se está observando su evolución y rutina.",
-    image: "assets/china.jfif"
+    image: "assets/china.jpg"
   },
   {
     id: "greta",
@@ -74,7 +74,7 @@ const CATS = [
     status: "Adoptada",
     tags: ["bebé", "delicada", "valiente"],
     notes: "Ya fue adoptado por su nueva familia. Gracias Eliana y Fernando",
-    image: "assets/kitanai.jfif"
+    image: "assets/kitanai.jpeg"
   },
   {
     id: "inti",
