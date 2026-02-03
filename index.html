@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tránsito Samuel | Hogar de tránsito para gatos</title>
+
+  <meta name="description" content="Hogar de tránsito para gatos rescatados. Casos especiales, cupos limitados. Ayudá difundiendo, donando o adoptando." />
+  <meta property="og:title" content="Tránsito Samuel" />
+  <meta property="og:description" content="Hogar de tránsito para gatos rescatados. Ayudá difundiendo, donando o adoptando." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="locked">
+  <!-- Fondo/FX -->
+  <div class="bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursorGlow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Canvas huellitas -->
+  <canvas id="paws"></canvas>
+
+  <!-- ===================== PORTADA / SPLASH ===================== -->
+  <section class="splash" id="splash" aria-label="Portada">
+    <video
+      class="splash__video"
+      id="splashVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="assets/hero.jpg"
+    >
+      <source src="assets/hero.mp4" type="video/mp4" />
+    </video>
+
+    <!-- fallback imagen si el video falla -->
+    <img class="splash__img" id="splashImg" src="assets/hero.jpg" alt="Portada Tránsito Samuel" />
+
+    <div class="splash__veil"></div>
+
+    <div class="splash__content">
+      <div class="splash__badge">🐾 Hogar de tránsito • Casos especiales • Cupos limitados</div>
+      <h1 class="splash__title">Tránsito Samuel</h1>
+
+      <p class="splash__sub">
+        Somos un hogar de tránsito para gatos rescatados. Los recibimos, los cuidamos y los acompañamos
+        hasta que estén listos para una familia definitiva. Todo es a pulmón: tu ayuda hace la diferencia 💙
+      </p>
+
+      <button class="enterBtn" id="btnIngresar" type="button">
+        Ingresar
+        <span class="enterBtn__shine" aria-hidden="true"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================== CONTENIDO ===================== -->
+  <div id="contenido" class="content" hidden>
+    <!-- Topbar -->
+    <header class="topbar" id="top">
+      <div class="wrap topbar__inner">
+        <a class="brand" href="#inicio" aria-label="Ir al inicio">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__txt">
+            <strong>Tránsito Samuel</strong>
+          </span>
+        </a>
+
+        <button class="menuBtn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav" id="nav">
+          <a href="#quienes">Quiénes somos</a>
+          <a href="#gatos">Gatos</a>
+          <a href="#ayudar">Cómo ayudar</a>
+          <a href="#espacio">Nuestro espacio</a>
+          <a href="#antesdespues">Antes/Después</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===================== HERO GRANDE ===================== -->
+      <section class="hero hero--big" id="inicio">
+        <div class="heroBg" aria-hidden="true"></div>
+
+        <div class="wrap hero__grid">
+          <div class="hero__copy reveal">
+            <p class="pill">💙 Todo a pulmón • 🐾 Cupos limitados • 🩺 Casos especiales</p>
+
+            <h2 class="hero__title">Un tránsito seguro cambia una vida</h2>
+
+            <p class="lead">
+              Nuestro objetivo es que cada gato que llega asustado, enfermo o lastimado
+              tenga un lugar donde recuperarse con amor, cuidados y paciencia.
+              Cuando están listos, buscamos una <strong>adopción responsable</strong> para siempre.
+            </p>
+
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#gatos">Ver gatos en tránsito</a>
+              <a class="btn btn--ghost" href="#ayudar">Ver formas de ayudar</a>
+            </div>
+
+            <div class="statsRow">
+              <div class="statPill"><span class="statPill__k">🏠</span><span class="statPill__v">Tránsito temporal</span></div>
+              <div class="statPill"><span class="statPill__k">🩺</span><span class="statPill__v">Recuperación</span></div>
+              <div class="statPill"><span class="statPill__k">🤝</span><span class="statPill__v">Red de ayuda</span></div>
+            </div>
+          </div>
+
+          <div class="hero__side reveal">
+            <div class="heroImage">
+              <img src="assets/hero-cat.jpg" alt="Gatito en tránsito" />
+              <div class="heroImage__veil"></div>
+            </div>
+
+            <div class="heroCard">
+              <div class="heroCard__body">
+                <h3>¿Querés adoptar o ayudar?</h3>
+                <p>
+                  Consultanos por WhatsApp. Te contamos el estado del gatito,
+                  requisitos de adopción y necesidades del momento.
+                </p>
+
+                <div class="heroCard__actions">
+                  <a class="btn btn--primary" id="btnWhatsHero" href="#">WhatsApp</a>
+                  <a class="btn btn--ghost" id="btnFbHero" href="#" target="_blank" rel="noopener">Facebook</a>
+                </div>
+
+                <small class="muted">Gracias por sumar 💙</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a class="scrollHint" href="#quienes" aria-label="Bajar"><span></span></a>
+      </section>
+
+      <!-- ===================== QUIÉNES SOMOS ===================== -->
+      <section class="section" id="quienes">
+        <div class="wrap">
+          <div class="aboutGrid">
+            <div class="aboutLeft reveal">
+              <div class="section__head">
+                <h2>Quiénes somos</h2>
+                <p class="sub">
+                  Tránsito Samuel es un hogar de tránsito para gatos rescatados, especialmente casos especiales.
+                  Los cupos son limitados porque buscamos mantener un espacio seguro, limpio y controlado.
+                  Cada ingreso depende de que podamos sostener alimento, medicación, arena y controles veterinarios.
+                </p>
+              </div>
+
+              <div class="aboutCards">
+                <article class="miniCard reveal">
+                  <h3>🐾 Rescate y contención</h3>
+                  <p>Recibimos gatitos en situación vulnerable y les damos un lugar seguro para descansar, comer y volver a confiar.</p>
+                </article>
+
+                <article class="miniCard reveal">
+                  <h3>🩺 Recuperación y cuidados</h3>
+                  <p>Seguimiento, medicación cuando corresponde, higiene, desparasitación y acompañamiento veterinario.</p>
+                </article>
+
+                <article class="miniCard reveal">
+                  <h3>🏡 Adopción responsable</h3>
+                  <p>Buscamos familias para toda la vida. Acompañamos la adaptación y priorizamos hogares comprometidos.</p>
+                </article>
+              </div>
+
+              <div class="aboutCallout reveal">
+                <div>
+                  <h3>💙 Todo se hace a pulmón</h3>
+                  <p>Si hoy estás acá, ya estás ayudando. Podés sumar difundiendo, donando insumos o consultando por adopción.</p>
+                </div>
+
+                <div class="aboutCallout__actions">
+                  <a class="btn btn--primary" href="#ayudar">Quiero ayudar</a>
+                  <a class="btn btn--ghost" id="btnWhatsAbout" href="#">WhatsApp</a>
+                </div>
+              </div>
+            </div>
+
+            <aside class="aboutRight reveal">
+              <div class="photoStack">
+                <img class="ph1" src="assets/about1.jpg" alt="Gatitos en tránsito" />
+                <img class="ph2" src="assets/about2.jpg" alt="Cuidado y recuperación" />
+                <div class="phBadge">🐱 Hogar de tránsito</div>
+              </div>
+
+              <div class="aboutStats">
+                <div class="statBox">
+                  <span class="k">🧼</span>
+                  <div>
+                    <strong>Espacio cuidado</strong>
+                    <small>Higiene + rutina</small>
+                  </div>
+                </div>
+                <div class="statBox">
+                  <span class="k">🍽️</span>
+                  <div>
+                    <strong>Alimento y arena</strong>
+                    <small>Insumos constantes</small>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== GATOS EN TRÁNSITO ===================== -->
+      <section class="section alt" id="gatos">
+        <div class="wrap">
+          <div class="section__head">
+            <h2>Gatos en tránsito</h2>
+            <p class="sub">
+              Acá vas a ver los gatitos que están en tránsito. Podés filtrar por estado o buscarlos por nombre.
+              Cada ficha tiene un botón para consultarnos directo por WhatsApp.
+            </p>
+          </div>
+
+          <div class="toolbar">
+            <div class="chips" id="chips"></div>
+
+            <label class="search">
+              <span>Buscar</span>
+              <input id="searchInput" type="search" placeholder="Nombre, tag o estado…" />
+            </label>
+          </div>
+
+          <div class="cards" id="catsGrid"></div>
+
+          <div class="center mt reveal">
+            <p class="miniNote">Si no podés adoptar, igual podés ayudar difundiendo, donando o siendo tránsito temporal.</p>
+            <a class="btn btn--primary" id="btnWhatsCats" href="#">Consultar por adopción</a>
+            <a class="btn btn--ghost" href="#ayudar">Ver formas de ayudar</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CÓMO AYUDAR ===================== -->
+      <section class="section" id="ayudar">
+        <div class="wrap">
+          <div class="section__head">
+            <h2>Cómo ayudar</h2>
+            <p class="sub">
+              Hay muchas formas de ayudar. Elegí la que te quede cómoda: donar, difundir, adoptar o ser tránsito temporal.
+              No importa el tamaño de la ayuda: todo suma 💙
+            </p>
+          </div>
+
+          <div class="grid2">
+            <article class="card reveal">
+              <h3>🤝 Tránsito temporal</h3>
+              <p>
+                Si podés ofrecer un espacio por un tiempo, ayudás a liberar cupo para rescates urgentes.
+                Nosotros te guiamos con cuidados, adaptación y necesidades del gatito.
+              </p>
+
+              <button class="linkBtn" type="button"
+                data-wa="Hola! 🙌 Quiero ofrecerme como tránsito temporal. ¿Qué necesito y cómo es el proceso?">
+                Escribir por WhatsApp
+              </button>
+            </article>
+
+            <article class="card reveal">
+              <h3>🏡 Adopción responsable</h3>
+              <p>
+                Adoptar es para toda la vida. Te contamos requisitos, cómo es la adaptación
+                y buscamos el mejor match para cada gatito y cada familia.
+              </p>
+
+              <button class="linkBtn" type="button"
+                data-wa="Hola! 🐾 Quiero info para adoptar. ¿Qué gatitos están disponibles y cuáles son los requisitos?">
+                Consultar adopción
+              </button>
+            </article>
+
+            <article class="card reveal donationCard">
+              <h3>🧺 Donaciones</h3>
+
+              <p class="donationText">
+                Todo lo que recibimos se usa para alimento, arena, medicación y controles veterinarios.
+                Tu ayuda sostiene cada tránsito 💙
+              </p>
+
+              <div class="donationBox">
+                <span class="donationLabel">ALIAS PARA DONAR</span>
+                <strong class="donationAlias" id="aliasText">Arielo1206</strong>
+
+                <button class="btn btn--primary btn--small" id="copyAliasBtn" type="button">
+                  Copiar alias
+                </button>
+              </div>
+
+              <p class="donationNote">
+                Si donás, escribinos por WhatsApp así podemos agradecerte y llevar registro 🐾
+              </p>
+            </article>
+
+            <article class="card reveal">
+              <h3>📣 Difusión</h3>
+              <p>
+                Compartir salva vidas. Difundir adopciones, búsquedas de tránsito y necesidades
+                hace que lleguemos a más personas y podamos seguir rescatando.
+              </p>
+
+              <button class="linkBtn" type="button" data-share>
+                Compartir esta página
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== NUESTRO ESPACIO ===================== -->
+      <section class="section alt" id="espacio">
+        <div class="wrap">
+          <div class="section__head">
+            <h2>Nuestro espacio</h2>
+            <p class="sub">
+              Este es el lugar donde transitamos a los gatitos. Está pensado para que estén seguros:
+              descanso, higiene, sector de comida/agua y un espacio para jugar y socializar según cada caso.
+            </p>
+          </div>
+
+          <div class="spaceGallery reveal">
+            <figure class="spaceItem">
+              <img src="assets/espacio7.jpg" alt="Zona de descanso de los gatitos" data-lightbox loading="lazy">
+              <figcaption>Zona de descanso</figcaption>
+            </figure>
+
+            <figure class="spaceItem">
+              <img src="assets/espacio6.jpg" alt="Sector de comida y agua" data-lightbox loading="lazy">
+              <figcaption>Comida y agua</figcaption>
+            </figure>
+
+            <figure class="spaceItem">
+              <img src="assets/espacio2.jpg" alt="Área de juego y socialización" data-lightbox loading="lazy">
+              <figcaption>Juego y socialización</figcaption>
+            </figure>
+
+            <figure class="spaceItem">
+              <img src="assets/espacio4.jpg" alt="Espacio limpio y seguro" data-lightbox loading="lazy">
+              <figcaption>Espacio limpio y seguro</figcaption>
+            </figure>
+          </div>
+
+          <div class="center mt reveal">
+            <p class="miniNote">¿Querés acercar donaciones o ayudar con insumos? Escribinos y coordinamos.</p>
+            <button class="btn btn--ghost" data-wa="Hola! Quiero acercar donaciones (alimento/arena/etc). ¿Dónde y cuándo puedo llevar?"
+              type="button">
+              Quiero acercar donaciones
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== ANTES / DESPUÉS ===================== -->
+      <section class="section" id="antesdespues">
+        <div class="wrap">
+          <div class="section__head">
+            <h2>Antes & después</h2>
+            <p class="sub">
+              Cada recuperación tiene una historia. A veces llegan muy débiles, con miedo o lastimados,
+              y con cuidados constantes se transforman. Esto es lo que nos mueve a seguir.
+            </p>
+          </div>
+
+          <div class="gallery">
+            <figure class="shot reveal">
+              <img src="assets/before1.jpg" alt="Antes 1" onerror="this.closest('figure').style.display='none'">
+              <figcaption>Antes</figcaption>
+            </figure>
+            <figure class="shot reveal">
+              <img src="assets/after1.jpg" alt="Después 1" onerror="this.closest('figure').style.display='none'">
+              <figcaption>Después</figcaption>
+            </figure>
+            <figure class="shot reveal">
+              <img src="assets/before2.jpg" alt="Antes 2" onerror="this.closest('figure').style.display='none'">
+              <figcaption>Antes</figcaption>
+            </figure>
+            <figure class="shot reveal">
+              <img src="assets/after2.jpg" alt="Después 2" onerror="this.closest('figure').style.display='none'">
+              <figcaption>Después</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== FAQ ===================== -->
+      <section class="section alt" id="faq">
+        <div class="wrap">
+          <div class="section__head">
+            <h2>Preguntas frecuentes</h2>
+            <p class="sub">Respuestas rápidas para ayudarte.</p>
+          </div>
+
+          <div class="faq">
+            <details class="faqItem reveal">
+              <summary>¿Qué necesito para adoptar?</summary>
+              <p>
+                Ser mayor de edad, compromiso, hogar seguro, paciencia y responsabilidad.
+                Te contamos requisitos según cada gatito y hacemos seguimiento en la adaptación.
+              </p>
+            </details>
+
+            <details class="faqItem reveal">
+              <summary>¿Cómo puedo ayudar si no puedo adoptar?</summary>
+              <p>
+                Podés difundir publicaciones, donar insumos, ayudar con traslados, aportar económicamente
+                o ofrecer tránsito temporal. Siempre hay algo para hacer.
+              </p>
+            </details>
+
+            <details class="faqItem reveal">
+              <summary>¿Aceptan donaciones de insumos?</summary>
+              <p>
+                Sí. Alimento balanceado, arena sanitaria, pipetas, mantas, medicamentos (según necesidad).
+                Escribinos para coordinar.
+              </p>
+            </details>
+
+            <details class="faqItem reveal">
+              <summary>¿Cómo consulto por un gato específico?</summary>
+              <p>
+                En “Gatos en tránsito” tocá el botón “Consultar” de su ficha y se abre WhatsApp con el mensaje armado.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CONTACTO ===================== -->
+      <section class="section" id="contacto">
+        <div class="wrap">
+          <div class="section__head">
+            <h2>Contacto</h2>
+            <p class="sub">
+              Para adopciones, ayuda o consultas. Si tardamos un poquito en responder,
+              es porque estamos ocupados con los cuidados, pero respondemos siempre 💙
+            </p>
+          </div>
+
+          <div class="contactCard contactCard--form reveal">
+            <div class="contactForm">
+              <div class="contactForm__head">
+                <h3>Escribinos</h3>
+                <p class="muted">Completá el formulario y te abrimos WhatsApp con el mensaje listo para enviar 💙</p>
+              </div>
+
+              <form id="contactForm" class="form">
+                <div class="form__row">
+                  <label class="field">
+                    <span>Tu nombre</span>
+                    <input id="fNombre" name="nombre" type="text" placeholder="Ej: Sofi" required>
+                  </label>
+
+                  <label class="field">
+                    <span>¿En qué podemos ayudarte?</span>
+                    <select id="fMotivo" name="motivo" required>
+                      <option value="" selected disabled>Elegí una opción…</option>
+                      <option value="Adoptar">Adoptar</option>
+                      <option value="Donar">Donar</option>
+                      <option value="Ofrecer tránsito">Ofrecer tránsito</option>
+                      <option value="Difundir">Difundir</option>
+                      <option value="Consulta">Consulta</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div class="form__row">
+                  <label class="field">
+                    <span>Mensaje</span>
+                    <textarea id="fMensaje" name="mensaje" rows="5" placeholder="Contanos un poco más…" required></textarea>
+                  </label>
+                </div>
+
+                <div class="form__actions">
+                  <button class="btn btn--primary" type="submit">Enviar por WhatsApp</button>
+
+                  <a class="btn btn--ghost" id="btnFbContact" href="#" target="_blank" rel="noopener">
+                    Facebook Tránsito-Samuel
+                  </a>
+                </div>
+
+                <p class="miniNote" style="margin-top:10px">
+                  Si tardamos un poquito en responder es porque estamos con los cuidados, pero respondemos siempre 🐾
+                </p>
+              </form>
+            </div>
+
+            <aside class="contactSide">
+              <div class="contactSide__box">
+                <h4>Respuestas rápidas</h4>
+                <div class="quickGrid">
+                  <button class="quick" type="button" data-fill="Adoptar">🏡 Adoptar</button>
+                  <button class="quick" type="button" data-fill="Donar">🧺 Donar</button>
+                  <button class="quick" type="button" data-fill="Ofrecer tránsito">🤝 Tránsito</button>
+                  <button class="quick" type="button" data-fill="Difundir">📣 Difusión</button>
+                </div>
+                <p class="muted" style="margin:10px 0 0">Tip: tocá uno y te completamos el motivo 😉</p>
+              </div>
+
+              <div class="contactSide__stats">
+                <div class="stat"><span class="stat__k">🏠</span><span class="stat__v">Hogar de tránsito</span></div>
+                <div class="stat"><span class="stat__k">🐾</span><span class="stat__v">Rescates + recuperación</span></div>
+                <div class="stat"><span class="stat__k">💙</span><span class="stat__v">Ayuda comunitaria</span></div>
+              </div>
+            </aside>
+          </div>
+
+          <footer class="footer">
+            <p>© <span id="year"></span> Tránsito Samuel · Hecho con amor 🐱</p>
+            <a class="toTop" href="#inicio">Volver arriba ↑</a>
+          </footer>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ✅ LIGHTBOX ÚNICO (para gatos + espacio) -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox__backdrop" data-lb-close></div>
+    <figure class="lightbox__content" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+      <button class="lightbox__close" type="button" aria-label="Cerrar" data-lb-close>✕</button>
+      <img id="lightboxImg" src="" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
